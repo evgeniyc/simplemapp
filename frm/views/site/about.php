@@ -5,7 +5,8 @@
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
 
-$this->title = 'О нас - SimpleMapp';
+// $this->title и $this->params['breadcrumbs'] - глобальные элементы, переводим через Yii::t()
+$this->title = Yii::t('app', 'About Us - SimpleMapp');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
@@ -14,21 +15,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
             <p class="lead text-center mb-5">
-                Мы — команда **SimpleMapp**, и наша миссия — **упрощать вашу цифровую жизнь** через создание интуитивно понятных и функциональных мобильных приложений для Android. Мы верим, что технологии должны быть доступны каждому, и стремимся создавать продукты, которые делают сложные задачи простыми.
+                We are the **SimpleMapp** team, and our mission is to **simplify your digital life** by creating intuitive and functional mobile applications for Android. We believe that technology should be accessible to everyone, and we strive to create products that make complex tasks simple.
             </p>
         </div>
     </div>
 
     <div class="row featurette align-items-center mb-5">
         <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Наше видение: Простота в каждом решении.</h2>
+            <h2 class="featurette-heading"><?= Yii::t('app', 'Our Vision: Simplicity in Every Solution.') ?></h2>
             <p class="lead">
-                В мире, где технологии становятся всё сложнее, мы идём по другому пути. SimpleMapp фокусируется на **создании приложений, которые работают быстро, эффективно и без лишних функций**. От образовательных инструментов, помогающих учиться новому, до повседневных утилит, экономящих ваше время — каждый наш продукт разрабатывается с мыслью о вашей простоте и удобстве.
+                In a world where technology is becoming increasingly complex, we are taking a different path. SimpleMapp focuses on **creating applications that work quickly, efficiently, and without unnecessary features**. From educational tools that help you learn new skills, to everyday utilities that save you time – every product we develop is designed with your simplicity and convenience in mind.
             </p>
         </div>
         <div class="col-md-5 order-md-1">
-            <?= Html::img('@web/img/simplest.png', ['alt' => 'Наше видение', 'class' => 'img-fluid rounded']) ?>
-            <p class="text-muted text-center mt-2">Наше видение простоты</p>
+            <?= Html::img('@web/img/simplest.png', ['alt' => Yii::t('app', 'Our Vision'), 'class' => 'img-fluid rounded']) ?>
+            <p class="text-muted text-center mt-2"><?= Yii::t('app', 'Our vision of simplicity') ?></p>
         </div>
     </div>
 
@@ -36,15 +37,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row featurette align-items-center mb-5">
         <div class="col-md-7">
-            <h2 class="featurette-heading">Наша команда: Страсть к Android и инновациям.</h2>
+            <h2 class="featurette-heading"><?= Yii::t('app', 'Our Team: Passion for Android and Innovation.') ?></h2>
             <p class="lead">
-                SimpleMapp — это небольшая, но сплоченная команда **разработчиков и дизайнеров, влюблённых в Android и Kotlin**. Мы постоянно учимся, экспериментируем и ищем новые способы сделать пользовательский опыт ещё лучше. Наша главная цель — создавать приложения, которыми приятно пользоваться и которые действительно приносят пользу.
+                SimpleMapp is a small but cohesive team of **developers and designers in love with Android and Kotlin**. We are constantly learning, experimenting, and finding new ways to improve the user experience. Our main goal is to create applications that are a pleasure to use and truly beneficial.
             </p>
-            <p><a class="btn btn-outline-primary" href="/site/team">Познакомьтесь с командой &raquo;</a></p>
+            <p><a class="btn btn-outline-primary" href="/site/team"><?= Yii::t('app', 'Meet the Team &raquo;') ?></a></p>
         </div>
         <div class="col-md-5">
-            <?= Html::img('@web/img/command.png', ['alt' => 'Наша команда', 'class' => 'img-fluid rounded']) ?>
-            <p class="text-muted text-center mt-2">Команда за работой</p>
+            <?= Html::img('@web/img/command.png', ['alt' => Yii::t('app', 'Our Team'), 'class' => 'img-fluid rounded']) ?>
+            <p class="text-muted text-center mt-2"><?= Yii::t('app', 'Team at work') ?></p>
         </div>
     </div>
 
@@ -52,15 +53,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row featurette align-items-center mb-5">
         <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Наши продукты: Приложения для каждого.</h2>
+            <h2 class="featurette-heading"><?= Yii::t('app', 'Our Products: Apps for Everyone.') ?></h2>
             <p class="lead">
-                От базовых обучающих программ, которые помогут освоить новые навыки, до специализированных инструментов для организации рабочего процесса — **SimpleMapp охватывает широкий спектр задач**. Мы регулярно обновляем наши приложения и выпускаем новые, чтобы оставаться актуальными и полезными для вас.
+                From basic educational programs that help you master new skills to specialized tools for organizing your workflow – **SimpleMapp covers a wide range of tasks**. We regularly update our applications and release new ones to stay relevant and useful for you.
             </p>
-            <p><a class="btn btn-primary" href="<?= Url::to('products') ?>">Перейти к нашим приложениям &raquo;</a></p>
+            <p><a class="btn btn-primary" href="<?= Url::to('products') ?>"><?= Yii::t('app', 'Go to Our Apps &raquo;') ?></a></p>
         </div>
         <div class="col-md-5 order-md-1">
-            <?= Html::img('@web/img/portfolio.png', ['alt' => 'Наши продукты', 'class' => 'img-fluid rounded']) ?>
-            <p class="text-muted text-center mt-2">Приложения</p>
+            <?= Html::img('@web/img/portfolio.png', ['alt' => Yii::t('app', 'Our Products'), 'class' => 'img-fluid rounded']) ?>
+            <p class="text-muted text-center mt-2"><?= Yii::t('app', 'Applications') ?></p>
         </div>
     </div>
 
@@ -68,12 +69,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row text-center mt-5">
         <div class="col-lg-12">
-            <h2>Присоединяйтесь к SimpleMapp!</h2>
+            <h2><?= Yii::t('app', 'Join SimpleMapp!') ?></h2>
             <p class="lead">
-                Мы всегда открыты для новых идей и обратной связи. Давайте вместе делать мир проще и функциональнее.
+                We are always open to new ideas and feedback. Let's make the world simpler and more functional together.
             </p>
             <p>
-                <a class="btn btn-success btn-lg" href="<?= Url::to('contact') ?>">Связаться с нами</a>
+                <a class="btn btn-success btn-lg" href="<?= Url::to('contact') ?>"><?= Yii::t('app', 'Contact Us') ?></a>
             </p>
         </div>
     </div>

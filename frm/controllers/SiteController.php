@@ -135,4 +135,38 @@ class SiteController extends Controller
     {
         return $this->render('products');
     }
+
+    /**
+     * Action to switch application language.
+     */
+    public function actionSetLanguage()
+    {
+        // Проверяем, что запрос отправлен методом POST (для безопасности CSRF)
+        if (Yii::$app->request->isPost) {
+            $language = Yii::$app->request->post('language'); // Получаем выбранный язык из POST-данных
+
+            // Проверяем, что язык допустим (опционально, но рекомендуется)
+            $allowedLanguages = ['uk-UA', 'ru-RU', 'en']; // Добавь все поддерживаемые языки
+            if (in_array($language, $allowedLanguages)) {
+                Yii::$app->language = $language;
+                // Сохраняем выбор языка в сессии (наиболее распространенный способ)
+                Yii::$app->session->set('language', $language);
+                // Или в куках, если нужно, чтобы выбор сохранялся дольше
+                 Yii::$app->response->cookies->add(new \yii\web\Cookie([
+                    'name' => 'language',
+					'value' => $language,
+                    'expire' => time() + (86400 * 30), // 30 дней
+                ]));
+            }
+        }
+
+        // Перенаправляем пользователя на предыдущую страницу
+        // Если предыдущей страницы нет, перенаправляем на главную
+        return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+    }
+
+    public function actionUnderDevelopment()
+    {
+        return $this->render('underDevelopment');
+    }
 }

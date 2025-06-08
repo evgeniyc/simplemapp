@@ -8,6 +8,7 @@ use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 use yii\captcha\Captcha;
 
+// Заголовок страницы оставим через Yii::t(), так как он глобальный
 $this->title = Yii::t('app', 'Contact Us');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -23,9 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="row">
             <div class="col-lg-6">
-                <h2><?= Yii::t('app', 'Contact Form') ?></h2>
+                <h2>Форма обратной связи</h2>
                 <p>
-                    <?= Yii::t('app', 'Do you have questions about our apps, suggestions for new features, or need support? Feel free to fill out the form below, and we will get back to you as soon as possible.') ?>
+                    У вас есть вопросы о наших приложениях, предложения по новым функциям или нужна поддержка? Не стесняйтесь заполнить форму ниже, и мы свяжемся с вами как можно скорее.
                 </p>
 
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
@@ -50,21 +51,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php ActiveForm::end(); ?>
             </div>
 
-            <div class="col-lg-6 mt-5 mt-lg-0"> <h2><?= Yii::t('app', 'Our Contacts') ?></h2>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <h2>Наши контакты</h2>
                 <p>
-                    <?= Yii::t('app', 'We are always happy to help you with any questions or suggestions. Here is our contact information:') ?>
+                    Мы всегда рады помочь вам с любыми вопросами или предложениями. Вот наша контактная информация:
                 </p>
                 <address>
                     <strong>SimpleMapp Inc.</strong><br>
-                    <?= Yii::t('app', 'Innovative Solutions Ltd.') ?><br>
-                    <?= Yii::t('app', '123 App Street, Apt. 4B') ?><br>
-                    <?= Yii::t('app', 'Tech City, Zip 98765') ?><br>
-                    <?= Yii::t('app', 'Digital Land') ?><br>
+                    ООО «Инновационные решения»<br>
+                    Улица Приложений, 123, кв. 4Б<br>
+                    Техноград, Индекс 98765<br>
+                    Цифровая Страна<br>
                     <br>
-                    <?= Yii::t('app', 'Email') ?>: <a href="mailto:support@simplemapp.com">support@simplemapp.com</a><br>
+                    Email: <a href="mailto:support@simplemapp.com">support@simplemapp.com</a><br>
                 </address>
                 <p>
-                    <?= Yii::t('app', 'For general inquiries, feel free to use the contact form.') ?>
+                    По общим вопросам, пожалуйста, используйте форму обратной связи.
                 </p>
             </div>
         </div>

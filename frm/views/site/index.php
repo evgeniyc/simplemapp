@@ -1,22 +1,23 @@
 <?php
-
+use yii\helpers\Url;
 /** @var yii\web\View $this */
 
-$this->title = 'SimpleMapp — Упрощаем мир с помощью мобильных приложений';
+// $this->title - глобальный заголовок страницы
+$this->title = 'SimpleMapp — Simplifying the world with mobile apps';
 ?>
 <div class="site-index">
 
     <div class="jumbotron text-center bg-transparent mt-5 mb-5">
-        <h1 class="display-4">Добро пожаловать в SimpleMapp!</h1>
+        <h1 class="display-4">Welcome to SimpleMapp!</h1>
 
         <p class="lead">
-            Мы создаем **простые и интуитивно понятные мобильные приложения** для Android,
-            которые **упрощают вашу жизнь и обучение**.
+            We create **simple and intuitive mobile applications** for Android,
+            that **simplify your life and learning**.
         </p>
 
         <p class="mt-4">
-            <a class="btn btn-lg btn-primary" href="/site/products">Посмотреть наши приложения</a>
-            <a class="btn btn-lg btn-outline-secondary ms-3" href="/site/about">Узнать о SimpleMapp</a>
+            <a class="btn btn-lg btn-primary" href="<?= Url::to('products') ?>">View Our Apps</a>
+            <a class="btn btn-lg btn-outline-secondary ms-3" href="<?= Url::to('about') ?>">Learn About SimpleMapp</a>
         </p>
     </div>
 
@@ -24,31 +25,31 @@ $this->title = 'SimpleMapp — Упрощаем мир с помощью моб�
 
         <div class="row">
             <div class="col-lg-4 mb-3">
-                <h2>Легкость использования</h2>
+                <h2>Ease of Use</h2>
 
                 <p>
-                    В SimpleMapp мы верим, что технологии должны быть доступны каждому. Наши приложения разработаны с акцентом на **максимальную простоту и интуитивность**, чтобы вы могли начать пользоваться ими без лишних усилий, с первых минут.
+                    At SimpleMapp, we believe that technology should be accessible to everyone. Our applications are designed with an emphasis on **maximum simplicity and intuitiveness**, so you can start using them effortlessly from the very first minute.
                 </p>
 
-                <p><a class="btn btn-outline-secondary" href="/site/philosophy">Наша философия &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to('under-development') ?>">Our Philosophy &raquo;</a></p>
             </div>
             <div class="col-lg-4 mb-3">
-                <h2>Для образования и жизни</h2>
+                <h2>For Education and Life</h2>
 
                 <p>
-                    Мы создаем приложения, которые не только упрощают повседневные задачи, но и **помогают в обучении и развитии**. От образовательных инструментов до утилит для повышения продуктивности – SimpleMapp предлагает решения для самых разных сфер вашей жизни.
+                    We create applications that not only simplify everyday tasks but also **assist in learning and development**. From educational tools to productivity utilities – SimpleMapp offers solutions for various aspects of your life.
                 </p>
 
-                <p><a class="btn btn-outline-secondary" href="/site/categories">Категории приложений &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to('under-development') ?>">App Categories &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Сообщество и поддержка</h2>
+                <h2>Community and Support</h2>
 
                 <p>
-                    SimpleMapp – это не просто приложения, это сообщество. Мы ценим обратную связь и постоянно работаем над улучшениями, чтобы наши продукты отвечали вашим потребностям. Ваше мнение помогает нам развиваться.
+                    SimpleMapp is not just about apps, it's a community. We value feedback and constantly work on improvements to ensure our products meet your needs. Your opinion helps us grow.
                 </p>
 
-                <p><a class="btn btn-outline-secondary" href="/site/support">Поддержка и связь &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to('under-development') ?>">Support and Contact &raquo;</a></p>
             </div>
         </div>
 
@@ -56,12 +57,12 @@ $this->title = 'SimpleMapp — Упрощаем мир с помощью моб�
 
         <div class="row text-center mt-5">
             <div class="col-lg-12">
-                <h2>Готовы упростить свой мир?</h2>
+                <h2>Ready to simplify your world?</h2>
                 <p class="lead">
-                    Исследуйте нашу коллекцию полезных и удобных Android-приложений прямо сейчас!
+                    Explore our collection of useful and convenient Android applications now!
                 </p>
                 <p>
-                    <a class="btn btn-success btn-lg" href="/site/products">Перейти к приложениям</a>
+                    <a class="btn btn-success btn-lg" href="<?= Url::to('products') ?>">Go to Apps</a>
                 </p>
             </div>
         </div>

@@ -4,46 +4,46 @@
 
 use yii\bootstrap5\Html;
 
-// $this->title - глобальный заголовок страницы, переводим через Yii::t()
+// $this->title - глобальний заголовок сторінки, буде перекладений через Yii::t()
 $this->title = Yii::t('app', 'Our Products - SimpleMapp');
 $this->params['breadcrumbs'][] = $this->title;
 
-// Пример данных для приложений. В реальном проекте они могли бы быть получены из базы данных.
-// Эти данные будут переводиться в соответствующих view-файлах для каждого языка.
+// Приклад даних для додатків. У реальному проекті вони могли б бути отримані з бази даних.
+// Цей масив тепер містить українські переклади імен та описів.
 $applications = [
     [
         'id' => 'educational-lang',
-        'name' => 'German A1 Flashcards', // Переведено
+        'name' => 'Картки Німецька А1', // Перекладено
         'image' => 'iconsa.jpg',
-        'description' => 'Interactive app for learning German words. Ideal for children and adults who want to expand their vocabulary. Simple methodology and clear explanations.', // Переведено
+        'description' => 'Інтерактивний додаток для вивчення німецьких слів. Ідеально підходить для дітей та дорослих, які бажають поповнити словниковий запас. Проста методика та зрозумілі пояснення.', // Перекладено
         'link' => '/site/product-details?id=educational-math',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.math.app',
     ],
     [
         'id' => 'daily-planner',
-        'name' => 'Multilang Flashcards', // Переведено
+        'name' => 'Картки multilang', // Перекладено
         'image' => 'multilang.jpg',
-        'description' => 'Your personal daily organizer. Create to-do lists, set reminders, and track progress. Simple, convenient, and effective.', // Переведено
+        'description' => 'Ваш особистий помічник в організації дня. Створюйте списки справ, встановлюйте нагадування та відстежуйте прогрес. Просто, зручно та ефективно.', // Перекладено
         'link' => '/site/product-details?id=daily-planner',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.planner.app',
     ],
     [
         'id' => 'language-learn',
-        'name' => 'SimpleLingua: Learn English Easily', // Переведено
+        'name' => 'SimpleLingua: Вивчай англійську легко', // Перекладено
         'image' => 'lingua_app.png',
-        'description' => 'Start learning English from scratch or improve your skills. Daily lessons, vocabulary flashcards, and practical exercises for quick progress.', // Переведено
+        'description' => 'Почніть вивчати англійську мову з нуля або покращте свої навички. Щоденні уроки, словникові картки та практичні вправи для швидкого прогресу.', // Перекладено
         'link' => '/site/product-details?id=language-learn',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.lingua.app',
     ],
     [
         'id' => 'cooking-recipes',
-        'name' => 'SimpleCook: Recipes for Every Day', // Переведено
+        'name' => 'SimpleCook: Рецепти на кожен день', // Перекладено
         'image' => 'cooking_app.png',
-        'description' => 'Thousands of tried-and-tested recipes for every taste. Step-by-step instructions, smart ingredient search, and the ability to save your favorite dishes. Cook with pleasure!', // Переведено
+        'description' => 'Тисячі перевірених рецептів на будь-який смак. Покрокові інструкції, розумний пошук за інгредієнтами та можливість зберігати улюблені страви. Готуйте із задоволенням!', // Перекладено
         'link' => '/site/product-details?id=cooking-recipes',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.cook.app',
     ],
-    // Добавь больше приложений по аналогии, переведенных на английский
+    // Додай більше додатків за аналогією, перекладених українською
 ];
 ?>
 
@@ -51,9 +51,9 @@ $applications = [
     <h1 class="display-5 text-center mb-5"><?= Html::encode($this->title) ?></h1>
 
     <p class="lead text-center mb-5">
-        At **SimpleMapp**, we are proud to create simple yet powerful Android applications,
-        that help you in education, daily life organization, and development. 
-        Discover our products, made with care for you!
+        <?= Yii::t('app', 'At **SimpleMapp**, we are proud to create simple yet powerful Android applications,') ?>
+        <?= Yii::t('app', 'that help you in education, daily life organization, and development.') ?>
+        <?= Yii::t('app', 'Discover our products, made with care for you!') ?>
     </p>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -62,7 +62,7 @@ $applications = [
                 <div class="card h-100 shadow-sm">
                     <div class="card-img-top-wrapper text-center p-3">
                         <?= Html::img('@web/img/' . $app['image'], [
-                            'alt' => Html::encode($app['name']), // alt-текст изображения также из данных приложения
+                            'alt' => Html::encode($app['name']),
                             'class' => 'img-fluid',
                             'style' => 'max-height: 180px; object-fit: contain;',
                         ]) ?>
@@ -85,8 +85,3 @@ $applications = [
     <div class="text-center mt-5">
         <p class="lead">
             <?= Yii::t('app', 'Stay tuned for our updates! We are constantly working on new applications and improving existing ones.') ?>
-        </p>
-        <a class="btn btn-info btn-lg" href="/site/updates"><?= Yii::t('app', 'What\'s New in SimpleMapp?') ?></a>
-    </div>
-
-</div>

@@ -18,6 +18,62 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
+
+$currentLanguage = Yii::$app->language;
+
+// Определяем все поддерживаемые языки и их отображаемые названия
+$allLanguages = [
+    'uk-UA' => 'УКР',
+    'ru-RU' => 'РУС',
+    'en' => 'ENG',
+    // Добавь другие языки, если нужно
+];
+
+// Получаем отображаемое название для текущего языка
+$currentLanguageLabel = isset($allLanguages[$currentLanguage]) ? $allLanguages[$currentLanguage] : 'Language'; // 'Language' как запасной вариант
+
+// --- Блок для выпадающего списка переключения языка ---
+$languageDropdownItems = [];
+
+// Генерируем элементы выпадающего списка для ВСЕХ языков
+// Текущий язык обычно не является ссылкой, или его можно выделить
+foreach ($allLanguages as $langCode => $langLabel) {
+    // Если это текущий язык, то не делаем его кликабельным в самом списке или выделяем его
+    // В данном случае, текущий язык будет показан в заголовке дропдауна,
+    // а в самом списке будут только альтернативные языки.
+    if ($langCode !== $currentLanguage) {
+        $languageDropdownItems[] =
+            '<li>' .
+            Html::beginForm(['/site/set-language'], 'post', ['class' => 'd-inline-block', 'id' => 'lang-switch-' . $langCode]) .
+            Html::hiddenInput('language', $langCode) .
+            Html::a(
+                $langLabel,
+                '#', // Ссылка на себя, фактический переход будет через JS
+                [
+                    'class' => 'dropdown-item',
+                    'onclick' => 'document.getElementById(\'lang-switch-' . $langCode . '\').submit(); return false;',
+                    'title' => 'Change language to ' . $langLabel,
+                ]
+            ) .
+            Html::endForm() .
+            '</li>';
+    }
+}
+
+// --- Формируем окончательный HTML для выпадающего списка ---
+$languageSwitchHtml = '';
+if (!empty($languageDropdownItems)) {
+    $languageSwitchHtml =
+        '<li class="nav-item dropdown">'
+        . '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button" data-bs-toggle="dropdown" aria-expanded="false">'
+        . $currentLanguageLabel // Отображаем текущий язык в заголовке дропдауна
+        . '</a>'
+        . '<ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">'
+        . implode("\n", $languageDropdownItems) // Объединяем все сгенерированные пункты
+        . '</ul>'
+        . '</li>';
+}
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -44,21 +100,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav ms-auto'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-			['label' => 'Products', 'url' => ['/site/products']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest
-                ? ['label' => 'Lang', 'url' => ['/site/login']]
-                : '<li class="nav-item">'
-                    . Html::beginForm(['/site/logout'])
-                    . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'nav-link btn btn-link logout']
-                    )
-                    . Html::endForm()
-                    . '</li>'
-        ]
+            ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
+            ['label' => Yii::t('app', 'About'), 'url' => ['/site/about']],
+			['label' => Yii::t('app', 'Products'), 'url' => ['/site/products']],
+            ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']],
+           
+        // Вставляем элементы переключателя языка напрямую
+        $languageSwitchHtml
+    ]
     ]);
     NavBar::end();
     ?>

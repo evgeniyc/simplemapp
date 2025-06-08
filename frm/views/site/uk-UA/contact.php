@@ -8,6 +8,7 @@ use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 use yii\captcha\Captcha;
 
+// Заголовок страницы оставим через Yii::t(), так как он глобальный
 $this->title = Yii::t('app', 'Contact Us');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -19,13 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="alert alert-success">
             <?= Yii::t('app', 'Thank you for contacting us. We will respond to you as soon as possible.') ?>
         </div>
-    <?php else: ?>
+
+        <?php else: ?>
 
         <div class="row">
             <div class="col-lg-6">
-                <h2><?= Yii::t('app', 'Contact Form') ?></h2>
+                <h2>Форма зворотного зв'язку</h2>
                 <p>
-                    <?= Yii::t('app', 'Do you have questions about our apps, suggestions for new features, or need support? Feel free to fill out the form below, and we will get back to you as soon as possible.') ?>
+                    Маєте запитання щодо наших додатків, пропозиції щодо нових функцій або потрібна підтримка? Не соромтеся заповнити форму нижче, і ми зв'яжемося з вами якомога швидше.
                 </p>
 
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
@@ -50,21 +52,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php ActiveForm::end(); ?>
             </div>
 
-            <div class="col-lg-6 mt-5 mt-lg-0"> <h2><?= Yii::t('app', 'Our Contacts') ?></h2>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <h2>Наші контакти</h2>
                 <p>
-                    <?= Yii::t('app', 'We are always happy to help you with any questions or suggestions. Here is our contact information:') ?>
+                    Ми завжди раді допомогти вам з будь-якими запитаннями або пропозиціями. Ось наша контактна інформація:
                 </p>
                 <address>
                     <strong>SimpleMapp Inc.</strong><br>
-                    <?= Yii::t('app', 'Innovative Solutions Ltd.') ?><br>
-                    <?= Yii::t('app', '123 App Street, Apt. 4B') ?><br>
-                    <?= Yii::t('app', 'Tech City, Zip 98765') ?><br>
-                    <?= Yii::t('app', 'Digital Land') ?><br>
+                    ТОВ «Інноваційні рішення»<br>
+                    Вулиця Додатків, 123, кв. 4Б<br>
+                    Техноград, Індекс 98765<br>
+                    Цифрова Країна<br>
                     <br>
-                    <?= Yii::t('app', 'Email') ?>: <a href="mailto:support@simplemapp.com">support@simplemapp.com</a><br>
+                    Електронна пошта: <a href="mailto:support@simplemapp.com">support@simplemapp.com</a><br>
                 </address>
                 <p>
-                    <?= Yii::t('app', 'For general inquiries, feel free to use the contact form.') ?>
+                    З загальних питань, будь ласка, використовуйте форму зворотного зв'язку.
                 </p>
             </div>
         </div>
