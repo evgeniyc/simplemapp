@@ -165,6 +165,21 @@ class SiteController extends Controller
         return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
     }
 
+    /**
+     * Displays LangApp details page.
+     * @return string
+     */
+    public function actionLangAppDetails()
+    {
+        return $this->render('langAppDetails');
+    }
+
+    public function actionCardsDe()
+    {
+        return $this->render('cardsDe');
+    }
+
+
     public function actionUnderDevelopment()
     {
         return $this->render('underDevelopment');

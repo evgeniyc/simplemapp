@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <p class="lead">
                 SimpleMapp — це невелика, але згуртована команда **розробників та дизайнерів, закоханих у Android та Kotlin**. Ми постійно вчимося, експериментуємо та шукаємо нові способи зробити користувацький досвід ще кращим. Наша головна мета — створювати додатки, якими приємно користуватися і які дійсно приносять користь.
             </p>
-            <p><a class="btn btn-outline-primary" href="/site/team"><?= Yii::t('app', 'Meet the Team &raquo;') ?></a></p>
+            <p><a class="btn btn-outline-primary" href="<?= Url::to('under-development') ?>"><?= Yii::t('app', 'Meet the Team &raquo;') ?></a></p>
         </div>
         <div class="col-md-5">
             <?= Html::img('@web/img/command.png', ['alt' => Yii::t('app', 'Our Team'), 'class' => 'img-fluid rounded']) ?>

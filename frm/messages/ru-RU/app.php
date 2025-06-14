@@ -75,4 +75,5 @@ return [
     'Welcome to SimpleMapp!' => 'Добро пожаловать в SimpleMapp!',
     'What\'s New in SimpleMapp?' => 'Что нового в SimpleMapp?',
     'that help you in education, daily life organization, and development.' => 'которые помогают вам в образовании, организации повседневной жизни и развитии.',
+    'Website under development' => 'Сайт находится в разработке',
 ];

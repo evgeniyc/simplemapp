@@ -3,7 +3,6 @@ main > .container {
 }
 
 #main {
-	background-image: url('../img/simplem_back.png');
 	background-size: 100% 100%; 
 	background-repeat: no-repeat;
 	color: white;
@@ -23,6 +22,19 @@ main > .container {
 #main .content {
     position: relative; /* Текст должен быть поверх оверлея */
     z-index: 2; /* Большее значение z-index для текста */
+}
+
+.breadcrumb {
+    --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8 6.5 4z' fill='%23ffff00'/%3E%3C/svg%3E");
+    /* Измените '%236c757d' на нужный вам HEX-код цвета. */
+    /* Например, для красного: '%23ff0000' */
+    /* Для белого: '%23ffffff' */
+    /* Для желтого: '%23ffff00' */
+    /* Цвет разделителя по умолчанию в Bootstrap - #6c757d (серый) */
+}
+
+.breadcrumb-item.active {
+    color: #fff;
 }
 
 .footer {
@@ -108,4 +120,49 @@ a.desc:after {
 
 .form-group {
     margin-bottom: 1rem;
+}
+
+/* web/css/site.css */
+
+.development-notice {
+    position: fixed;
+    /* Фиксированное положение относительно окна браузера */
+    bottom: 20px;
+    /* 20px от нижнего края */
+    right: 20px;
+    /* 20px от правого края */
+    /* Или: */
+    /* top: 20px; */
+    /* left: 20px; */
+    /* Для левого верхнего угла */
+
+    /*background-color: #ffc107;
+     Цвет фона (желтый, warning) */
+    background-color: rgba(255, 193, 7, 0.7);
+    color: #343a40;
+    /* Цвет текста (темный) */
+    padding: 8px 15px;
+    /* Внутренние отступы */
+    border-radius: 5px;
+    /* Скругленные углы */
+    font-weight: bold;
+    /* Жирный шрифт */
+    font-size: 0.9em;
+    /* Размер шрифта */
+    z-index: 1050;
+    /* Выше других элементов, чтобы всегда быть видимым */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Легкая тень для объема */
+    opacity: 0.95;
+    /* Небольшая прозрачность */
+}
+
+/* Медиа-запрос для мобильных устройств, если нужно сместить или уменьшить */
+@media (max-width: 768px) {
+    .development-notice {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
 }

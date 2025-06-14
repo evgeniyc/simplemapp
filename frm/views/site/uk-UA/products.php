@@ -16,15 +16,15 @@ $applications = [
         'name' => 'Картки Німецька А1', // Перекладено
         'image' => 'iconsa.jpg',
         'description' => 'Інтерактивний додаток для вивчення німецьких слів. Ідеально підходить для дітей та дорослих, які бажають поповнити словниковий запас. Проста методика та зрозумілі пояснення.', // Перекладено
-        'link' => '/site/product-details?id=educational-math',
-        'download_link' => 'https://play.google.com/store/apps/details?id=your.math.app',
+        'link' => 'cards-de', // Посилання на сторінку з деталями додатку
+        'download_link' => 'https://play.google.com/store/apps/details?id=com.egenec.langapp&pcampaignid=web_share',
     ],
     [
         'id' => 'daily-planner',
         'name' => 'Картки multilang', // Перекладено
         'image' => 'multilang.jpg',
         'description' => 'Ваш особистий помічник в організації дня. Створюйте списки справ, встановлюйте нагадування та відстежуйте прогрес. Просто, зручно та ефективно.', // Перекладено
-        'link' => '/site/product-details?id=daily-planner',
+        'link' => 'lang-app-details',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.planner.app',
     ],
     [

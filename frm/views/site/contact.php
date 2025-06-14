@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <p>
                     <?= Yii::t('app', 'We are always happy to help you with any questions or suggestions. Here is our contact information:') ?>
                 </p>
-                <address>
+                <!-- <address>
                     <strong>SimpleMapp Inc.</strong><br>
                     <?= Yii::t('app', 'Innovative Solutions Ltd.') ?><br>
                     <?= Yii::t('app', '123 App Street, Apt. 4B') ?><br>
@@ -62,6 +62,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Yii::t('app', 'Digital Land') ?><br>
                     <br>
                     <?= Yii::t('app', 'Email') ?>: <a href="mailto:support@simplemapp.com">support@simplemapp.com</a><br>
+                </address> -->
+                <address>
+                    <strong>SimpleMapp Inc.</strong><br>
+                    Innovative Solutions Ltd.<br>
+                    Email: <a href="mailto:simplemoba@gmail.com">simplemoba@gmail.com</a><br>
                 </address>
                 <p>
                     <?= Yii::t('app', 'For general inquiries, feel free to use the contact form.') ?>

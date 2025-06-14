@@ -59,11 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <address>
                     <strong>SimpleMapp Inc.</strong><br>
                     ООО «Инновационные решения»<br>
-                    Улица Приложений, 123, кв. 4Б<br>
-                    Техноград, Индекс 98765<br>
-                    Цифровая Страна<br>
-                    <br>
-                    Email: <a href="mailto:support@simplemapp.com">support@simplemapp.com</a><br>
+                    Email: <a href="mailto:simplemoba@gmail.com">simplemoba@gmail.com</a><br>
                 </address>
                 <p>
                     По общим вопросам, пожалуйста, используйте форму обратной связи.
