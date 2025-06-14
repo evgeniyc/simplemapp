@@ -14,15 +14,15 @@ $applications = [
         'name' => 'Карточки Немецкий А1',
         'image' => 'iconsa.jpg', // Путь к изображению приложения
         'description' => 'Интерактивное приложение для изучения немецких слов. Идеально подходит для детей и взрослых, желающих пополнить словарный запас. Простая методика и понятные объяснения.',
-        'link' => '/site/product-details?id=educational-math', // Ссылка на страницу с деталями приложения
-        'download_link' => 'https://play.google.com/store/apps/details?id=your.math.app', // Ссылка на Google Play
+        'link' => 'cards-de', // Ссылка на страницу с деталями приложения
+        'download_link' => 'https://play.google.com/store/apps/details?id=com.egenec.langapp&pcampaignid=web_share', // Ссылка на Google Play
     ],
     [
         'id' => 'daily-planner',
         'name' => 'Карточки multilang',
         'image' => 'multilang.jpg',
         'description' => 'Ваш личный помощник в организации дня. Создавайте списки дел, устанавливайте напоминания и отслеживайте прогресс. Просто, удобно и эффективно.',
-        'link' => '/site/product-details?id=daily-planner',
+        'link' => 'lang-app-details',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.planner.app',
     ],
     [

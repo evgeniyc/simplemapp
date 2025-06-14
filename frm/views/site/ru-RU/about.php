@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <p class="lead">
                 SimpleMapp — это небольшая, но сплоченная команда **разработчиков и дизайнеров, влюблённых в Android и Kotlin**. Мы постоянно учимся, экспериментируем и ищем новые способы сделать пользовательский опыт ещё лучше. Наша главная цель — создавать приложения, которыми приятно пользоваться и которые действительно приносят пользу.
             </p>
-            <p><a class="btn btn-outline-primary" href="/site/team">Познакомьтесь с командой &raquo;</a></p>
+            <p><a class="btn btn-outline-primary" href="<?= Url::to('under-development') ?>">Познакомьтесь с командой &raquo;</a></p>
         </div>
         <div class="col-md-5">
             <?= Html::img('@web/img/command.png', ['alt' => 'Наша команда', 'class' => 'img-fluid rounded']) ?>

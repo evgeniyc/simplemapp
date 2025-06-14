@@ -40,7 +40,7 @@ $this->title = 'SimpleMapp — Simplifying the world with mobile apps';
                     We create applications that not only simplify everyday tasks but also **assist in learning and development**. From educational tools to productivity utilities – SimpleMapp offers solutions for various aspects of your life.
                 </p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to('under-development') ?>">App Categories &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to('products') ?>">App Categories &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Community and Support</h2>
@@ -49,7 +49,7 @@ $this->title = 'SimpleMapp — Simplifying the world with mobile apps';
                     SimpleMapp is not just about apps, it's a community. We value feedback and constantly work on improvements to ensure our products meet your needs. Your opinion helps us grow.
                 </p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to('under-development') ?>">Support and Contact &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to('contact') ?>">Support and Contact &raquo;</a></p>
             </div>
         </div>
 

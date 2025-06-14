@@ -16,15 +16,15 @@ $applications = [
         'name' => 'German A1 Flashcards', // Переведено
         'image' => 'iconsa.jpg',
         'description' => 'Interactive app for learning German words. Ideal for children and adults who want to expand their vocabulary. Simple methodology and clear explanations.', // Переведено
-        'link' => '/site/product-details?id=educational-math',
-        'download_link' => 'https://play.google.com/store/apps/details?id=your.math.app',
+        'link' => 'cards-de', // Ссылка на страницу с деталями приложения
+        'download_link' => 'https://play.google.com/store/apps/details?id=com.egenec.langapp&pcampaignid=web_share',
     ],
     [
         'id' => 'daily-planner',
         'name' => 'Multilang Flashcards', // Переведено
         'image' => 'multilang.jpg',
         'description' => 'Your personal daily organizer. Create to-do lists, set reminders, and track progress. Simple, convenient, and effective.', // Переведено
-        'link' => '/site/product-details?id=daily-planner',
+        'link' => 'lang-app-details',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.planner.app',
     ],
     [

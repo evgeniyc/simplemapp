@@ -9,6 +9,7 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 
@@ -74,6 +75,21 @@ if (!empty($languageDropdownItems)) {
         . '</li>';
 }
 
+
+$mainStyle = '';
+$imageUrl = ''; // Инициализируем переменную для URL изображения
+
+if (isset($this->params['backgroundImage'])) {
+    $imageUrl = Url::to('@web/img/' . $this->params['backgroundImage']);
+} else {
+    $imageUrl = Url::to('@web/img/simplem_back.png'); // <-- Здесь путь к твоему изображению по умолчанию
+}
+
+// Теперь формируем стиль только если imageUrl не пуст (хотя он не будет пустым с else)
+if ($imageUrl) {
+    $mainStyle = "background-image: url('" . $imageUrl . "');";
+}
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -113,7 +129,7 @@ if (!empty($languageDropdownItems)) {
     ?>
 </header>
 
-<main id="main" class="flex-shrink-0" role="main">
+<main id="main" class="flex-shrink-0" role="main" style="<?= Html::encode($mainStyle) ?>">
     <div class="container">
 		<div class = "content">
 			<?php if (!empty($this->params['breadcrumbs'])): ?>
@@ -134,7 +150,9 @@ if (!empty($languageDropdownItems)) {
 		</div>
     </div>
 </footer>
-
+<div class="development-notice">
+    <?= Yii::t('app', 'Website under development') ?>
+</div>
 <?php $this->endBody() ?>
 </body>
 </html>

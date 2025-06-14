@@ -34,6 +34,12 @@ $config = [
                 ],
             ],
         ],
+        'assetManager' => [
+        'class' => 'yii\web\AssetManager',
+        'linkAssets' => true, // Рекомендуется для production на Unix-серверах
+        'forceCopy' => YII_ENV_DEV ? true : false, // Уже управляется YII_ENV
+        'appendTimestamp' => true, // Добавляет временную метку к файлам для сброса кеша браузера
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'yvA2yyk0FnpzPmSaD2HTQ1lDUEYyk3Qw',
