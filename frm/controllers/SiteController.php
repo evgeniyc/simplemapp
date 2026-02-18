@@ -125,7 +125,7 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-	
+
 	/**
      * Displays products page.
      *
@@ -135,6 +135,53 @@ class SiteController extends Controller
     {
         return $this->render('products');
     }
+
+    /**
+     * Displays news page.
+     *
+     * @return string
+     */
+    public function actionNews()
+    {
+        $lang = Yii::$app->language; // 'ru', 'uk', 'en'
+        switch ($lang) {
+            case 'uk-UA':
+                $newsList = require(Yii::getAlias('@app/views/site/uk-UA/news-list.php'));
+                break;
+            case 'ru-RU':
+                $newsList = require(Yii::getAlias('@app/views/site/ru-RU/news-list.php'));
+                break;
+            default:
+                $newsList = require(Yii::getAlias('@app/views/site/news-list.php'));
+                break;
+        }
+
+        usort($newsList, function($a, $b) {
+            return strtotime($b['date']) <=> strtotime($a['date']);
+        });
+
+        // **Важно:** передаем массив в render
+        return $this->render('news', [
+            'newsList' => $newsList,
+        ]);
+    }
+
+    public function actionSnews($id)
+{
+    // Временно — массив фейковых новостей (пока без БД)
+    $newsList = require(Yii::getAlias('@app/views/site/news-list.php'));
+    if (!isset($newsList[$id])) {
+        throw new \yii\web\NotFoundHttpException('News not found');
+    }
+
+    $news = $newsList[$id];
+
+    return $this->render('snews', [
+        'news' => $news
+    ]);
+}
+
+
 
     /**
      * Action to switch application language.

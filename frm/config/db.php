@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'class' => yii\db\Connection::class,
+    'dsn' => 'mysql:host=localhost;dbname=simplemapp',
     'username' => 'root',
     'password' => '',
-    'charset' => 'utf8',
+    'charset' => 'utf8mb4',
 
     // Schema cache options (for production environment)
     //'enableSchemaCache' => true,

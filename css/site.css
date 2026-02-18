@@ -3,7 +3,7 @@ main > .container {
 }
 
 #main {
-	background-size: 100% 100%; 
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	color: white;
 	position: relative;
@@ -35,6 +35,24 @@ main > .container {
 
 .breadcrumb-item.active {
     color: #fff;
+}
+
+.dev-badge {
+    position: absolute;
+    top: 36px;
+    right: -37px;
+    width: 180px;
+    text-align: center;
+    transform: rotate(45deg);
+    background: rgba(220, 53, 69, 0.75); /* прозрачность 75% */
+    /* background: #dc3545; */
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 6px 0;
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    pointer-events: none;
 }
 
 .footer {

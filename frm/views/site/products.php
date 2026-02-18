@@ -3,6 +3,7 @@
 /** @var yii\web\View $this */
 
 use yii\bootstrap5\Html;
+use yii\helpers\Url;
 
 // $this->title - глобальный заголовок страницы, переводим через Yii::t()
 $this->title = Yii::t('app', 'Our Products - SimpleMapp');
@@ -18,6 +19,7 @@ $applications = [
         'description' => 'Interactive app for learning German words. Ideal for children and adults who want to expand their vocabulary. Simple methodology and clear explanations.', // Переведено
         'link' => 'cards-de', // Ссылка на страницу с деталями приложения
         'download_link' => 'https://play.google.com/store/apps/details?id=com.egenec.langapp&pcampaignid=web_share',
+        'in_dev' => false,
     ],
     [
         'id' => 'daily-planner',
@@ -26,22 +28,25 @@ $applications = [
         'description' => 'Your personal daily organizer. Create to-do lists, set reminders, and track progress. Simple, convenient, and effective.', // Переведено
         'link' => 'lang-app-details',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.planner.app',
+        'in_dev' => true,
     ],
     [
         'id' => 'language-learn',
         'name' => 'SimpleLingua: Learn English Easily', // Переведено
-        'image' => 'lingua_app.png',
+        'image' => 'lingua_app.jpg',
         'description' => 'Start learning English from scratch or improve your skills. Daily lessons, vocabulary flashcards, and practical exercises for quick progress.', // Переведено
         'link' => '/site/product-details?id=language-learn',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.lingua.app',
+        'in_dev' => true,
     ],
     [
         'id' => 'cooking-recipes',
         'name' => 'SimpleCook: Recipes for Every Day', // Переведено
-        'image' => 'cooking_app.png',
+        'image' => 'cooking_app.jpg',
         'description' => 'Thousands of tried-and-tested recipes for every taste. Step-by-step instructions, smart ingredient search, and the ability to save your favorite dishes. Cook with pleasure!', // Переведено
         'link' => '/site/product-details?id=cooking-recipes',
         'download_link' => 'https://play.google.com/store/apps/details?id=your.cook.app',
+        'in_dev' => true,
     ],
     // Добавь больше приложений по аналогии, переведенных на английский
 ];
@@ -52,14 +57,19 @@ $applications = [
 
     <p class="lead text-center mb-5">
         At **SimpleMapp**, we are proud to create simple yet powerful Android applications,
-        that help you in education, daily life organization, and development. 
+        that help you in education, daily life organization, and development.
         Discover our products, made with care for you!
     </p>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <?php foreach ($applications as $app): ?>
             <div class="col">
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm position-relative">
+                    <?php if (!empty($app['in_dev'])): ?>
+                        <div class="dev-badge">
+                            <?= Yii::t('app', 'In Development') ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="card-img-top-wrapper text-center p-3">
                         <?= Html::img('@web/img/' . $app['image'], [
                             'alt' => Html::encode($app['name']), // alt-текст изображения также из данных приложения
@@ -86,7 +96,7 @@ $applications = [
         <p class="lead">
             <?= Yii::t('app', 'Stay tuned for our updates! We are constantly working on new applications and improving existing ones.') ?>
         </p>
-        <a class="btn btn-info btn-lg" href="/site/updates"><?= Yii::t('app', 'What\'s New in SimpleMapp?') ?></a>
+        <a class="btn btn-info btn-lg" href="<?= Url::to(['/site/news']) ?>"><?= Yii::t('app', 'What\'s New in SimpleMapp?') ?></a>
     </div>
 
 </div>

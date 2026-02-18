@@ -17,8 +17,8 @@ $this->title = Yii::t('app', 'SimpleMapp — Simplifying the world with mobile a
         </p>
 
         <p class="mt-4">
-            <a class="btn btn-lg btn-primary" href="<?= Url::to('products') ?>"><?= Yii::t('app', 'View Our Apps') ?></a>
-            <a class="btn btn-lg btn-outline-secondary ms-3" href = "<?= Url::to('about') ?>"><?= Yii::t('app', 'Learn About SimpleMapp') ?></a>
+            <a class="btn btn-lg btn-primary" href="<?= Url::to(['products']) ?>"><?= Yii::t('app', 'View Our Apps') ?></a>
+            <a class="btn btn-lg btn-outline-secondary ms-3" href = "<?= Url::to(['about']) ?>"><?= Yii::t('app', 'Learn About SimpleMapp') ?></a>
         </p>
     </div>
 
@@ -32,7 +32,7 @@ $this->title = Yii::t('app', 'SimpleMapp — Simplifying the world with mobile a
                     У SimpleMapp ми віримо, що технології мають бути доступними кожному. Наші додатки розроблені з акцентом на **максимальну простоту та інтуїтивність**, щоб ви могли почати користуватися ними без зайвих зусиль, з перших хвилин.
                 </p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to('under-development') ?>"><?= Yii::t('app', 'Our Philosophy &raquo;') ?></a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['under-development']) ?>"><?= Yii::t('app', 'Our Philosophy &raquo;') ?></a></p>
             </div>
             <div class="col-lg-4 mb-3">
                 <h2><?= Yii::t('app', 'For Education and Life') ?></h2>
@@ -41,7 +41,7 @@ $this->title = Yii::t('app', 'SimpleMapp — Simplifying the world with mobile a
                     Ми створюємо додатки, які не тільки спрощують повсякденні завдання, але й **допомагають у навчанні та розвитку**. Від освітніх інструментів до утиліт для підвищення продуктивності – SimpleMapp пропонує рішення для різних сфер вашого життя.
                 </p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to('products') ?>"><?= Yii::t('app', 'App Categories &raquo;') ?></a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['products']) ?>"><?= Yii::t('app', 'App Categories &raquo;') ?></a></p>
             </div>
             <div class="col-lg-4">
                 <h2><?= Yii::t('app', 'Community and Support') ?></h2>
@@ -50,7 +50,7 @@ $this->title = Yii::t('app', 'SimpleMapp — Simplifying the world with mobile a
                     SimpleMapp – це не просто додатки; це спільнота. Ми цінуємо зворотний зв’язок і постійно працюємо над покращеннями, щоб наші продукти відповідали вашим потребам. Ваша думка допомагає нам розвиватися.
                 </p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to('contact') ?>"><?= Yii::t('app', 'Support and Contact &raquo;') ?></a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['contact']) ?>"><?= Yii::t('app', 'Support and Contact &raquo;') ?></a></p>
             </div>
         </div>
 
@@ -63,7 +63,7 @@ $this->title = Yii::t('app', 'SimpleMapp — Simplifying the world with mobile a
                     Дослідіть нашу колекцію корисних та зручних Android-додатків прямо зараз!
                 </p>
                 <p>
-                    <a class="btn btn-success btn-lg" href="<?= Url::to('products') ?>"><?= Yii::t('app', 'Go to Apps') ?></a>
+                    <a class="btn btn-success btn-lg" href="<?= Url::to(['products']) ?>"><?= Yii::t('app', 'Go to Apps') ?></a>
                 </p>
             </div>
         </div>

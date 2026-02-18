@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.egenec.langapp",
+      "sha256_cert_fingerprints": [
+        "A1:20:0D:0F:D9:E7:39:D0:DD:ED:A0:58:6D:B4:5C:C7:AA:55:61:99:B7:B8:1E:9E:17:00:7E:65:28:58:28:8E"
+      ]
+    }
+  }
+]

@@ -47,8 +47,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-4">
             <h3>Screenshots</h3>
             <p>Add images or a gallery of screenshots from your app here.</p>
-            <img src="<?= Url::to('@web/images/langapp_screenshot1.png') ?>" alt="LangApp Screenshot 1" class="img-fluid mb-3">
-            <img src="<?= Url::to('@web/images/langapp_screenshot2.png') ?>" alt="LangApp Screenshot 2" class="img-fluid mb-3">
+            <img src="<?= Url::to('@web/img/langapp_screenshot1.png') ?>" alt="LangApp Screenshot 1" class="img-fluid mb-3">
+            <img src="<?= Url::to('@web/img/langapp_screenshot2.png') ?>" alt="LangApp Screenshot 2" class="img-fluid mb-3">
             </div>
     </div>
 

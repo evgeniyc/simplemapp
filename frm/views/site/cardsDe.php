@@ -68,11 +68,19 @@ $this->params['backgroundImage'] = 'cards-de.png'; // Path to the background ima
 
         </div>
         <div class="col-md-4">
-            <h3>Screenshots</h3>
-            <p>Add images or a gallery of screenshots from your app here.</p>
-            <img src="<?= Url::to('@web/images/cards_de_screenshot1.png') ?>" alt="Screenshot 1" class="img-fluid mb-3">
-            <img src="<?= Url::to('@web/images/cards_de_screenshot2.png') ?>" alt="Screenshot 2" class="img-fluid mb-3">
+            <h3 class="mb-3">Screenshots</h3>
+            <div class="row">
+                <div class="col-6">
+                    <img src="<?= Url::to('@web/img/langapp_screenshot1.jpg') ?>" alt="German A1 Flashcards Screenshot 1" class="img-fluid mb-3">
+                    <img src="<?= Url::to('@web/img/langapp_screenshot2.jpg') ?>" alt="German A1 Flashcards Screenshot 2" class="img-fluid mb-3">
+                    </div>
+                <div class="col-6">
+                    <img src="<?= Url::to('@web/img/langapp_screenshot3.jpg') ?>" alt="German A1 Flashcards Screenshot 3" class="img-fluid mb-3">
+                    <img src="<?= Url::to('@web/img/langapp_screenshot4.jpg') ?>" alt="German A1 Flashcards Screenshot 4" class="img-fluid mb-3">
+                </div>
             </div>
+        </div>
+
     </div>
 
     <div class="mt-5">

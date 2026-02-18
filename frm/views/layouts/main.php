@@ -104,10 +104,10 @@ if ($imageUrl) {
 <header id="header">
     <?php
     NavBar::begin([
-        'brandLabel' => Html::img('@web/img/simplem4.png', 
+        'brandLabel' => Html::img('@web/img/simplem4.png',
 		[
-			'alt' => 'Логотип Simplemapp', 
-			'class' => 'me-2', 
+			'alt' => 'Логотип Simplemapp',
+			'class' => 'me-2',
 			'style' => 'height: 55px;'
 		]) . '<span style="color:yellow; text-shadow: 0 0 3px black;">'.Yii::$app->name.'</span>',
         'brandUrl' => Yii::$app->homeUrl,
@@ -120,7 +120,8 @@ if ($imageUrl) {
             ['label' => Yii::t('app', 'About'), 'url' => ['/site/about']],
 			['label' => Yii::t('app', 'Products'), 'url' => ['/site/products']],
             ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']],
-           
+            ['label' => Yii::t('app', 'News'), 'url' => ['/site/news']],
+
         // Вставляем элементы переключателя языка напрямую
         $languageSwitchHtml
     ]

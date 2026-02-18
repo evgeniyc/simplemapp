@@ -68,11 +68,15 @@ $this->params['backgroundImage'] = 'cards-de.png'; // Path to the background ima
 
         </div>
         <div class="col-md-4">
-            <h3>Скриншоты</h3>
-            <p>Добавьте здесь изображения или галерею скриншотов из вашего приложения.</p>
-            <img src="<?= Url::to('@web/images/cards_de_screenshot1.png') ?>" alt="Скриншот 1" class="img-fluid mb-3">
-            <img src="<?= Url::to('@web/images/cards_de_screenshot2.png') ?>" alt="Скриншот 2" class="img-fluid mb-3">
-            </div>
+            <div class="row">
+                <div class="col-6">
+                    <img src="<?= Url::to('@web/img/langapp_screenshot1.jpg') ?>" alt="German A1 Flashcards Screenshot 1" class="img-fluid mb-3">
+                    <img src="<?= Url::to('@web/img/langapp_screenshot2.jpg') ?>" alt="German A1 Flashcards Screenshot 2" class="img-fluid mb-3">
+                    </div>
+                <div class="col-6">
+                    <img src="<?= Url::to('@web/img/langapp_screenshot3.jpg') ?>" alt="German A1 Flashcards Screenshot 3" class="img-fluid mb-3">
+                    <img src="<?= Url::to('@web/img/langapp_screenshot4.jpg') ?>" alt="German A1 Flashcards Screenshot 4" class="img-fluid mb-3">
+                </div>
     </div>
 
     <div class="mt-5">
