@@ -5,8 +5,6 @@
 /frm/docker-compose.yml
 /frm/requirements.php
 /frm/Vagrantfile
-/frm/yii
-/frm/yii.bat
 /frm/vagrant/config/.gitignore
 /frm/vagrant/nginx/log/.gitignore
 .vagrant/
