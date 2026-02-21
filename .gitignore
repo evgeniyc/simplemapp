@@ -14,6 +14,7 @@
 /img/uploads/
 /uploads/
 /index-test.php
+/index-local.php
 
 /frm/config/db.local.php
 /frm/config/params-local.php
