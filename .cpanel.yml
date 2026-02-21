@@ -1,0 +1,17 @@
+---
+deployment:
+  tasks:
+    # Папка сайта, куда будем деплоить
+    - export DEPLOYMENT_DIR=public_html
+
+    # Синхронизация репозитория с папкой сайта
+    # Игнорируем временные и большие папки, которые не нужны на проде
+    - rsync -av --exclude='vendor' \
+               --exclude='runtime' \
+               --exclude='.git' \
+               --exclude='.idea' \
+               --exclude='.vscode' \
+               --exclude='node_modules' \
+               --exclude='tests' \
+               --exclude='*.log' \
+               ./ $DEPLOYMENT_DIR
