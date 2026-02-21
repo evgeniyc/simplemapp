@@ -1,7 +1,5 @@
 /frm/vendor/
 /frm/runtime/
-/frm/tests/
-/frm/web/
 /frm/.bowerrc
 /frm/codeception.yml
 /frm/docker-compose.yml
