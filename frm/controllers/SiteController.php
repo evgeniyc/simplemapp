@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\News;
 
 class SiteController extends Controller
 {
@@ -144,7 +145,7 @@ class SiteController extends Controller
     public function actionNews()
     {
         $lang = Yii::$app->language; // 'ru', 'uk', 'en'
-        switch ($lang) {
+        /* switch ($lang) {
             case 'uk-UA':
                 $newsList = require(Yii::getAlias('@app/views/site/uk-UA/news-list.php'));
                 break;
@@ -158,11 +159,15 @@ class SiteController extends Controller
 
         usort($newsList, function($a, $b) {
             return strtotime($b['date']) <=> strtotime($a['date']);
-        });
+        }); */
+
+        $news = News::find()
+        ->with('translation')
+        ->all();
 
         // **Важно:** передаем массив в render
         return $this->render('news', [
-            'newsList' => $newsList,
+            'newsList' => $news,
         ]);
     }
 

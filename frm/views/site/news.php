@@ -91,7 +91,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="timeline">
 
-        <?php foreach ($newsList as $key => $news): ?>
+        <?php foreach ($newsList as $news): ?>
+            <?php $t = $news->translation; ?>
+
             <div class="timeline-item">
 
                 <div class="timeline-dot"></div>
@@ -99,28 +101,31 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="timeline-content">
 
                     <div class="timeline-date">
-                        <?= Yii::$app->formatter->asDate($news['date']) ?>
+                        <?= Yii::$app->formatter->asDate($news->date) ?>
                     </div>
 
-                    <h5><?= Html::encode($news['title']) ?></h5>
+                    <h5 class="mb-3">
+                        <?= Html::encode($t->title ?? '') ?>
+                    </h5>
 
-                    <?= Html::img('@web/img/' . $news['image'], [
-                        'alt' => Html::encode($news['title']),
-                        'class' => 'img-fluid',
-                    ]) ?>
+                    <?php if (!empty($news->image)): ?>
+                        <?= Html::img('@web/img/' . $news->image, [
+                            'alt' => Html::encode($t->title ?? ''),
+                            'class' => 'img-fluid',
+                        ]) ?>
+                    <?php endif; ?>
 
-                    <p><?= Html::encode($news['description']) ?></p>
-
-                    <a href="<?= Url::to(['/site/snews', 'id' => $key]) ?>" class="btn btn-outline-primary btn-sm">
-                        <?= Yii::t('app', 'Read More') ?>
-                    </a>
-
+                    <?php if (!empty($t->description)): ?>
+                        <p><?= Html::encode($t->description) ?></p>
+                    <?php endif; ?>
 
                 </div>
             </div>
+
         <?php endforeach; ?>
 
     </div>
+
 
     <div class="text-center mt-4">
         <a class="btn btn-secondary btn-lg" href="<?= Url::to(['/site/products']) ?>">

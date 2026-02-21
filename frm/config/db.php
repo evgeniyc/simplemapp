@@ -2,9 +2,9 @@
 
 return [
     'class' => yii\db\Connection::class,
-    'dsn' => 'mysql:host=localhost;dbname=simplemapp',
-    'username' => 'root',
-    'password' => '',
+    'dsn' => 'mysql:host=localhost;dbname=egewe258_simplemapp',
+    'username' => 'egewe258_admin ',
+    'password' => '251173chp',
     'charset' => 'utf8mb4',
 
     // Schema cache options (for production environment)
