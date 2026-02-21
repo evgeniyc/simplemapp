@@ -2,14 +2,15 @@ Options -Indexes
 DirectoryIndex index-local.php index.php
 
 RewriteEngine On
+RewriteBase /simplemapp/
 
-# если файл или папка существуют — отдаем напрямую
+# если файл или папка существуют — не трогаем
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
 # всё остальное → Yii
-RewriteRule ^ index.php [L,QSA]
+RewriteRule ^ index-local.php [L,QSA]
 
 # запрет прямого доступа к frm
 RewriteRule ^frm(/|$) - [F,L]

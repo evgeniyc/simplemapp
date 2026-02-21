@@ -10,7 +10,7 @@ if (file_exists($localConfig)) {
         'class' => yii\db\Connection::class,
         'dsn' => 'mysql:host=localhost;dbname=egewe258_simplemapp',
         'username' => 'egewe258_admin ',
-        'password' => '',
+        'password' => '251173chp',
         'charset' => 'utf8mb4',
 
         // Schema cache options (for production environment)
