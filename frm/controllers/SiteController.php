@@ -62,6 +62,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        /* $user = new \app\models\User();
+        $user->username = 'admin';
+        $user->setPassword('111'); // замени на свой
+        $user->generateAuthKey();
+        if ($user->save()) {
+            echo "Админ создан!";
+        } else {
+            var_dump($user->errors);
+        }
+        die(); */
+
         return $this->render('index');
     }
 
@@ -92,11 +103,13 @@ class SiteController extends Controller
      *
      * @return Response
      */
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        // Перенаправляем именно на публичную ленту новостей
+        return $this->redirect(['site/news']);
     }
 
     /**
@@ -142,50 +155,42 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionNews()
-    {
-        $lang = Yii::$app->language; // 'ru', 'uk', 'en'
-        /* switch ($lang) {
-            case 'uk-UA':
-                $newsList = require(Yii::getAlias('@app/views/site/uk-UA/news-list.php'));
-                break;
-            case 'ru-RU':
-                $newsList = require(Yii::getAlias('@app/views/site/ru-RU/news-list.php'));
-                break;
-            default:
-                $newsList = require(Yii::getAlias('@app/views/site/news-list.php'));
-                break;
-        }
-
-        usort($newsList, function($a, $b) {
-            return strtotime($b['date']) <=> strtotime($a['date']);
-        }); */
-
-        $news = News::find()
-        ->with('translation')
+    /**
+ * Отображение ленты новостей для пользователей
+ */
+public function actionNews()
+{
+    // Используем созданный в модели метод findActive()
+    // и жадную загрузку для текущего языка
+    $news = News::findActive()
+        ->with(['translation']) // Подгрузит NewsTranslation для текущего Yii::$app->language
+        ->orderBy(['date' => SORT_DESC])
         ->all();
 
-        // **Важно:** передаем массив в render
-        return $this->render('news', [
-            'newsList' => $news,
-        ]);
-    }
+    return $this->render('news', [
+        'newsList' => $news,
+    ]);
+}
 
-    public function actionSnews($id)
+/**
+ * Просмотр одной новости
+ */
+public function actionSnews($id)
 {
-    // Временно — массив фейковых новостей (пока без БД)
-    $newsList = require(Yii::getAlias('@app/views/site/news-list.php'));
-    if (!isset($newsList[$id])) {
-        throw new \yii\web\NotFoundHttpException('News not found');
-    }
+    // Ищем новость по ID вместе с переводом
+    $news = News::find()
+        ->where(['id' => $id, 'status' => 1])
+        ->with(['translation'])
+        ->one();
 
-    $news = $newsList[$id];
+    if ($news === null) {
+        throw new \yii\web\NotFoundHttpException('Новость не найдена');
+    }
 
     return $this->render('snews', [
         'news' => $news
     ]);
 }
-
 
 
     /**
@@ -236,4 +241,7 @@ class SiteController extends Controller
     {
         return $this->render('underDevelopment');
     }
+
+    // Временный код для создания админа
+
 }

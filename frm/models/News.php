@@ -38,7 +38,7 @@ class News extends ActiveRecord
         return [
             [['created_at', 'updated_at'], 'default', 'value' => null],
             [['status'], 'default', 'value' => 1],
-            [['image', 'date'], 'required'],
+            //[['image', 'date'], 'required'],
             [['date'], 'date', 'format' => 'php:d-m-Y'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['image'], 'string', 'max' => 255],
@@ -58,6 +58,18 @@ class News extends ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    /**
+     * Этот метод вызывается при инициализации модели (например, new News())
+     */
+    public function init()
+    {
+        parent::init();
+        // 2. АВТОЗАПОЛНЕНИЕ даты текущим значением, если создается новая запись
+        if ($this->isNewRecord && empty($this->date)) {
+            $this->date = date('d-m-Y');
+        }
     }
 
     /**

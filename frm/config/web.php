@@ -48,9 +48,10 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
+            'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'authTimeout' => 3600,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -91,11 +92,27 @@ $config = [
         'db' => $db,
 
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
+    'enablePrettyUrl' => true,
+    'showScriptName' => false,
+    'rules' => [
+        // --- Публичная часть (SiteController) ---
+        '' => 'site/index',                                // Главная
+        'about' => 'site/about',                           // О нас
+        'contact' => 'site/contact',                       // Контакты
+        'news' => 'site/news',                             // Лента новостей
+        'news/<id:\d+>' => 'site/snews',                   // Одна новость (чтение)
+
+        // --- Админка (NewsController) ---
+        'admin/news' => 'news/index',                      // Список новостей в админке
+        'admin/news/create' => 'news/create',              // Создание
+        'admin/news/update/<id:\d+>' => 'news/update',     // Редактирование
+        'admin/news/view/<id:\d+>' => 'news/view',         // Просмотр в админке
+        'admin/news/delete/<id:\d+>' => 'news/delete',     // Удаление
+
+        // Стандартное правило для остальных контроллеров
+        '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+    ],
+],
 
     ],
     'params' => $params,
