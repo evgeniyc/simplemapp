@@ -1,16 +1,18 @@
 Options -Indexes
-DirectoryIndex index-local.php index.php
+# Убираем лишние индексы, оставляем только реальные файлы
+DirectoryIndex index.php index-local.php
 
 RewriteEngine On
-RewriteBase /simplemapp/
+# Если сайт в корне public_html, ставим /
+RewriteBase /
 
-# если файл или папка существуют — не трогаем
+# Если файл или папка существуют — не трогаем
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# всё остальное → Yii
-RewriteRule ^ index-local.php [L,QSA]
+# Перенаправляем на index.php (или index-local.php, если ты уверен, что он там есть)
+RewriteRule ^ index.php [L,QSA]
 
-# запрет прямого доступа к frm
+# Запрет прямого доступа к frm
 RewriteRule ^frm(/|$) - [F,L]
