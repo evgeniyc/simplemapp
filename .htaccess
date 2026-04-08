@@ -1,23 +1,23 @@
 Options -Indexes
-# Сначала ищем стандартный index.php, потом локальный
-DirectoryIndex index.php index-local.php
+
+# 1. Указываем приоритет индексных файлов для папок
+DirectoryIndex index-local.php index.php
 
 RewriteEngine On
-# Убираем привязку к подпапке simplemapp, если сайт в корне public_html
-RewriteBase /
 
-# Если файл или папка существуют — не трогаем
+# 2. RewriteBase (лучше оставить автоопределение, если сайт в корне)
+# RewriteBase /
+
+# 3. Если файл или папка существуют (картинки, стили) — отдаем их как есть
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Главное правило: отправляем всё на index.php
-# Если его нет, Apache сам попробует index-local.php благодаря DirectoryIndex выше
-RewriteRule ^ index.php [L,QSA]
-
-# Если index.php физически отсутствует, можно попробовать так:
-RewriteCond %{REQUEST_FILENAME} !-f
+# 4. Умное перенаправление для PrettyURL
+# Проверяем: если существует index-local.php — шлем на него
+RewriteCond %{DOCUMENT_ROOT}/index-local.php -f
 RewriteRule ^(.*)$ index-local.php [L,QSA]
 
-# Запрет прямого доступа к frm
-RewriteRule ^frm(/|$) - [F,L]
+# 5. Если локального нет — шлем на стандартный index.php
+RewriteCond %{DOCUMENT_ROOT}/index.php -f
+RewriteRule ^(.*)$ index.php [L,QSA]
