@@ -2,4 +2,8 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/egewe258/public_html/
-    - /usr/bin/rsync -avz --delete --exclude='vendor' --exclude='runtime' --exclude='.git' --exclude='.idea' --exclude='node_modules' ./ $DEPLOYPATH
+    - /usr/bin/rsync -avz --delete --exclude='vendor' --exclude='runtime' --exclude='.git' ./ $DEPLOYPATH
+    # Добавляем исправление прав сразу после копирования:
+    - /bin/chmod 644 $DEPLOYPATH.htaccess
+    - /bin/chmod 644 $DEPLOYPATHindex.php
+    - /bin/chmod 755 $DEPLOYPATH
